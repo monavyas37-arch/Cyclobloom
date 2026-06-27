@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cycle Compass Dashboard</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="dashboard-body">
+  <main class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow">Live analytics</p>
+        <h1>Period tracker dashboard</h1>
+      </div>
+      <div class="dash-actions">
+        <a class="link-button" href="./tracker.html" target="_blank" rel="noopener">Open tracker</a>
+        <button id="clearData" class="secondary" type="button">Clear demo data</button>
+      </div>
+    </header>
+
+    <section class="kpi-grid">
+      <article><span>Total responses</span><strong id="totalResponses">0</strong></article>
+      <article><span>Late period rate</span><strong id="lateRate">0%</strong></article>
+      <article><span>High fertility window</span><strong id="fertileRate">0%</strong></article>
+      <article><span>Average cycle gap</span><strong id="avgGap">0 days</strong></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="dash-panel">
+        <h2>Current phase mix</h2>
+        <div id="phaseBars" class="bar-list"></div>
+      </article>
+      <article class="dash-panel">
+        <h2>Top moods</h2>
+        <div id="moodBars" class="bar-list"></div>
+      </article>
+      <article class="dash-panel">
+        <h2>Top symptoms</h2>
+        <div id="symptomBars" class="bar-list"></div>
+      </article>
+      <article class="dash-panel">
+        <h2>Late-period follow-up</h2>
+        <div id="conditionBars" class="bar-list"></div>
+      </article>
+    </section>
+
+    <section class="dash-panel table-panel">
+      <h2>Recent saved responses</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Saved</th>
+              <th>Phase</th>
+              <th>Next period</th>
+              <th>Late</th>
+              <th>Moods</th>
+              <th>Symptoms</th>
+            </tr>
+          </thead>
+          <tbody id="responseRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="./dashboard.js"></script>
+</body>
+</html>

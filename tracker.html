@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cycle Compass Tracker</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="tracker-body">
+  <main class="phone-shell" aria-live="polite">
+    <section class="app-topbar">
+      <div>
+        <p class="eyebrow">Cycle Compass</p>
+        <h1>Period tracker</h1>
+      </div>
+      <div class="progress-wrap" aria-label="Progress">
+        <div id="progressBar"></div>
+      </div>
+    </section>
+
+    <section id="pageIntro" class="page active" data-step="1">
+      <div class="split-grid">
+        <form class="question-panel" id="cycleForm">
+          <label>
+            Last period date
+            <input id="lastPeriod" type="date" required>
+          </label>
+          <label>
+            Normal gap between periods
+            <div class="inline-input"><input id="cycleGap" type="number" min="18" max="90" value="28" required><span>days</span></div>
+          </label>
+          <label>
+            Period usually lasts
+            <div class="inline-input"><input id="periodLength" type="number" min="1" max="14" value="5" required><span>days</span></div>
+          </label>
+          <p class="mini-note">This educational tool estimates phases from your dates. It cannot confirm pregnancy or diagnose medical conditions.</p>
+        </form>
+
+        <div class="phase-strip" aria-label="Menstrual cycle phases">
+          <article class="phase-card menstruation">
+            <div class="phase-art"><span>🌧️</span></div>
+            <h2>Menstrual</h2>
+            <p>Day 1-5</p>
+          </article>
+          <article class="phase-card follicular">
+            <div class="phase-art"><span>🌱</span></div>
+            <h2>Follicular</h2>
+            <p>Day 6-13</p>
+          </article>
+          <article class="phase-card ovulation">
+            <div class="phase-art"><span>☀️</span></div>
+            <h2>Ovulation</h2>
+            <p>Around day 14</p>
+          </article>
+          <article class="phase-card luteal">
+            <div class="phase-art"><span>🌙</span></div>
+            <h2>Luteal</h2>
+            <p>Day 15-next cycle</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pagePhase" class="page" data-step="2">
+      <div class="insight-layout">
+        <div class="cycle-ring">
+          <div>
+            <span id="phaseEmoji">🌙</span>
+            <strong id="currentPhase">Luteal</strong>
+            <small id="cycleDay">Cycle day 1</small>
+          </div>
+        </div>
+        <div class="insight-copy">
+          <p class="eyebrow">Today</p>
+          <h2 id="phaseHeadline">Your current phase</h2>
+          <p id="phaseDescription"></p>
+          <div class="metric-grid">
+            <div><span>Next period</span><strong id="nextPeriodDate">-</strong></div>
+            <div><span>Pregnancy chance</span><strong id="pregnancyChance">-</strong></div>
+            <div><span>Late status</span><strong id="lateStatus">-</strong></div>
+            <div><span>Best conception window</span><strong id="ovulationWindow">-</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pageMood" class="page" data-step="3">
+      <div class="page-heading">
+        <p class="eyebrow">Mood check</p>
+        <h2>How is your mood?</h2>
+      </div>
+      <div id="moodOptions" class="chip-grid multi-grid"></div>
+    </section>
+
+    <section id="pageSymptoms" class="page" data-step="4">
+      <div class="page-heading">
+        <p class="eyebrow">Body check</p>
+        <h2>Choose symptoms and intensity</h2>
+      </div>
+      <div id="symptomOptions" class="symptom-list"></div>
+    </section>
+
+    <section id="pageConditions" class="page" data-step="5">
+      <div class="page-heading">
+        <p class="eyebrow">Late period follow-up</p>
+        <h2>Any known menstrual health condition?</h2>
+        <p class="soft-copy">Your last period is more than 45 days ago, so this extra page helps explain the late-period insight.</p>
+      </div>
+      <div id="conditionOptions" class="chip-grid condition-grid"></div>
+    </section>
+
+    <section id="pageDiagnosis" class="page" data-step="6">
+      <div class="results-layout">
+        <div>
+          <p class="eyebrow">Personal insight</p>
+          <h2 id="diagnosisTitle">Cycle insight</h2>
+          <p id="diagnosisBody"></p>
+        </div>
+        <div>
+          <h3>Relief ideas</h3>
+          <ul id="reliefList"></ul>
+        </div>
+        <p class="mini-note wide">Seek urgent care for severe one-sided pelvic pain, very heavy bleeding, fainting, fever, or a positive pregnancy test with pain or bleeding.</p>
+      </div>
+    </section>
+
+    <section id="pageThanks" class="page" data-step="7">
+      <div class="thanks-card">
+        <span>💗</span>
+        <h2>Thank you</h2>
+        <p>Your responses were saved for the live dashboard. The next person who opens this tracker will start with a clean form.</p>
+        <button id="startAgain" class="secondary" type="button">Start new response</button>
+      </div>
+    </section>
+
+    <nav class="bottom-nav">
+      <button id="backBtn" class="secondary" type="button">Back</button>
+      <span id="stepLabel">Page 1</span>
+      <button id="nextBtn" type="button">Next</button>
+    </nav>
+  </main>
+
+  <script src="./tracker.js"></script>
+</body>
+</html>
